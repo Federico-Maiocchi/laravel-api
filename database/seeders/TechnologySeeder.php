@@ -15,7 +15,8 @@ class TechnologySeeder extends Seeder
     public function run(): void
     {
         $technologies = [
-            'css', 'scss', 'js', 'vue', 'react', 'astro', 'laravel', 'node', 'angular', 'c++'];
+            'css', 'scss', 'js', 'vue', 'react', 'astro', 'laravel', 'node', 'angular', 'c++'
+        ];
 
         foreach($technologies as $technology_name) {
 
