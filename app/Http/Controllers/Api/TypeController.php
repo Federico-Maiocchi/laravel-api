@@ -38,9 +38,11 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        $type->load('projects');
+        $type->load('projects','projects.technologies');
 
-        $projects = Project::where('type_id', $type->id)->orderBy('updated_at','desc')->paginate();
+        $projects = Project::with('technologies')->where('type_id', $type->id)
+        ->orderBy('updated_at','desc')
+        ->paginate();
 
         return response()->json([
             'type' => $type,
