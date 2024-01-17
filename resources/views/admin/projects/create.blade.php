@@ -8,7 +8,7 @@
     
     <div class="container">
         <h1 class="text-light">Crea progetto</h1>
-        <form action="{{ route('admin.projects.store' ) }}" method="POST" >
+        <form action="{{ route('admin.projects.store' ) }}" method="POST"  enctype="multipart/from-data">
 
             @csrf
 
@@ -16,6 +16,11 @@
                 <label for="title" class="form-label text-light">Titolo</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="titolo" value="{{ old('title') }}">
             </div>
+
+            <div class="mb-3">
+                <label for="cover_image" class="form-label">Default file input example</label>
+                <input class="form-control" type="file" name="cover_image" id="cover_image">
+              </div>
 
             <div class="mb-3">
                 <label for="title" class="form-label text-light">Seleziona una categoria</label>
