@@ -29,7 +29,6 @@ class StoreProjectRequest extends FormRequest
             'type_id'=>['nullable','exists:types,id'],
             'technology_id'=>['nullable','exists:technologies,id'],
             'cover_image'=>['nullable','file','max:2048','mimes:jpeg,png,jpg,gif']  
-
         ];
     
     }
