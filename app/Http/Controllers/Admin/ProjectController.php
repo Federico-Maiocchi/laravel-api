@@ -94,6 +94,17 @@ class ProjectController extends Controller
 
         $data['slug'] = Str::slug($data['title'], '-');
 
+        if ($request->hasFile('cover_image')) {
+            $file_path = Storage::put('images',$request->cover_image);
+
+            $data['cover_image'] = $file_path;
+
+            // elimino il file precedente se sto salvando una nuova copertina
+            if($project->cover_image) {
+                Storage::delete($project->cover_image);
+            }
+        }
+
         $project->update($data);
 
         if($request->has('technologies')) {

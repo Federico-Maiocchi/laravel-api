@@ -7,7 +7,7 @@
 </section>
   <div class="container">
     <h1 class="text-light">Modifica progetto</h1>
-        <form action="{{ route('admin.projects.update', $project ) }}" method="POST" >
+        <form action="{{ route('admin.projects.update', $project ) }}" method="POST" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
@@ -15,6 +15,11 @@
             <div class="mb-3">
                 <label for="title" class="form-label text-light">Titolo</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="titolo" value="{{ old('title',$project->title) }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="cover_image" class="form-label">Carica File</label>
+                <input class="form-control" type="file" name="cover_image" id="cover_image" value="{{ old('cover_image',$project->cover_image) }}">
             </div>
 
             <label for="title" class="form-label text-light">Seleziona una categoria</label>
