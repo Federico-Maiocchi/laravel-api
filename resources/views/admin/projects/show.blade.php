@@ -14,7 +14,7 @@
                         <p>{{ $project->slug }}</p>
                         <p>{{optional($project->type)->name}}</p>
 
-                        <div class="d-flex"></div>
+                        <div class="d-flex">
                             <ul>
                                 @foreach($project->technologies as $technology)
                             
@@ -22,9 +22,15 @@
 
                                 @endforeach
                             </ul>
+                        </div>
+                            
                        
-    
+                        @if($project->cover_image)
+                            <img  class='w-100' src="{{ asset('storage/' . $project->cover_image) }}" alt="">
+                        @endif
+
                         <p class="card-text">Descrizione: {{$project->description}}</p>
+                        
                         <p class="card-text">Immagine: {{$project->img}}</p>
                     </div>
                     <div class="d-flex justify-content-between p-2">

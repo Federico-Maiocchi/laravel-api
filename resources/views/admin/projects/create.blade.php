@@ -8,7 +8,7 @@
     
     <div class="container">
         <h1 class="text-light">Crea progetto</h1>
-        <form action="{{ route('admin.projects.store' ) }}" method="POST"  enctype="multipart/from-data">
+        <form action="{{ route('admin.projects.store' ) }}" method="POST"  enctype="multipart/form-data">
 
             @csrf
 
