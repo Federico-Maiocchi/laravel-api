@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,14 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        
+        $type->load('projects');
+
+        $projects = Project::where('type_id', $type->id)->orderBy('updated_at','desc')->paginate();
+
+        return response()->json([
+            'type' => $type,
+            'projects' => $projects
+        ]);
     }
 
     /**
